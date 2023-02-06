@@ -1,0 +1,42 @@
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid" style="background-color: rgb(5, 10, 12);">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" (click)="collapsed = !collapsed">
+              <span class="icon-bar" *ngFor="let iconBar of [1, 2, 3]"></span>
+            </button>
+            <a routerLink="/" class="navbar-brand">LockedDesk</a>
+          </div>
+          <div class="navbar-collapse" [class.collapse]="collapsed" 
+          (window:resize)="collapsed = true">
+            <ul class="nav navbar-nav" id="link">
+                <li *ngIf="isAuthenticated">
+                    <a routerLink="/recipes">Recipes</a>
+                </li>
+                <li *ngIf="isAuthenticated">
+                    <a routerLink="/electronic">Electronics</a>
+                </li>
+                <li *ngIf="!isAuthenticated">
+                    <a routerLink="/auth">Authentication</a>
+                </li>
+                <li *ngIf="isAuthenticated">
+                    <a routerLink="/shopping-list">Shopping-list</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li *ngIf="isAuthenticated">
+                    <a style="cursor: pointer; color: #fff;" (click)="onLogout()">Logout</a>
+                </li>
+                <li class="dropdown" appDropdown *ngIf="isAuthenticated">
+                    <a class="dropdown-toggle" role="button" 
+                    style="cursor: pointer; background-color: #000; color: #fff;">Data 
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a style="cursor: pointer" (click)="onSaveData()">Save Data</a></li>
+                        <li><a style="cursor: pointer" (click)="onFetchData()">Fetch Data</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

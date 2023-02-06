@@ -1,0 +1,17 @@
+
+    <input type="text" class="form-control"
+        [(ngModel)]="serverName">
+    <button class="btn btn-primary"
+        [disabled]="!allowNewServer"
+        (click)="onServer()">Add Server</button>
+            <!-- <p>{{ serverClickStatus }}</p> -->
+
+            <!-- for simple ngif statement -->
+
+            <!-- <p *ngIf = "createdServer">{{ serverClickStatus }}</p> -->
+
+            <p *ngIf = "createdServer; else noServer">{{ serverClickStatus }}</p>
+
+            <ng-template #noServer><p>no server was created</p></ng-template>
+
+<p>server with ID {{ serverId }} is {{ serverStatus }}</p>

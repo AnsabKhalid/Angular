@@ -1,0 +1,50 @@
+<div class="fixed">
+    <div class="row">
+        <div class="col-xs-12">
+            <img 
+            src="{{ electronic.imagePath }}" 
+            alt="{{ electronic.name }}" 
+            class="image-responsive" 
+            style="max-height: 200px;">
+ 
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h3>{{ electronic.name }}</h3>
+            <h4>{{ electronic.amount | currency:'Rs:' }}</h4>
+        </div>
+    </div>   
+
+    <h4>{{ electronic.description }}</h4>
+            <div class="row">
+                <div class="col-xs-12">
+                    <button 
+                    class="btn btn-primary" 
+                    (click)="onAddShoppingList()" 
+                    style="cursor: pointer;
+                           margin: 10px 0 20px 0;">
+                    Add to Cart
+                </button>
+                </div>
+            </div>
+
+    <div class="row" style="display: none;">
+        <div class="col-xs-12">
+            <ul class="list-group">
+                <li 
+                class="list-group-item"
+                *ngFor="let ingredient of electronic.ingredients">
+                <strong>
+                    {{ ingredient.name }}
+                    <div class="pull-right">
+                        {{ ingredient.amount | currency:'INR' }}
+                    </div>
+                </strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>

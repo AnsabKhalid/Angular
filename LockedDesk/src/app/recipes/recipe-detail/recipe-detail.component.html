@@ -1,0 +1,63 @@
+<div class="container fixed">
+    <div class="row">
+        <div class="col-xs-12">
+            <img src="{{ recipe.imagePath }}"
+            alt="{{ recipe.name }}" 
+            class="image-responsive"
+            style="height: 200px;">
+    
+            <!-- another method using property binding
+            <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="image-responsive"> -->
+    
+        </div>
+    </div>
+
+    <div class="row" id="margin">
+        <div class="col-xs-8">
+            <h1>{{ recipe.name }}</h1>
+            <p> {{ recipe.description }} </p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="btn-group"
+            appDropdown>
+                <button type="button" 
+                 class="btn btn-primary dropdown-toggle" style="margin-top: 10px;">Manage Recipes
+                  <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a (click)="onAddShoppingList()" style="cursor: pointer">
+                        Add to Shopping-List
+                      </a>
+                    </li>
+                      <li><a style="cursor: pointer" (click)="onEditRecipe()">Edit Recipes</a></li>
+                      <li><a style="cursor: pointer" (click)="onDeleteRecipe()">Delete Recipes</a></li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- <div class="row">
+        <div class="col-xs-12" style="margin: 10px 0 10px 0;">
+            {{ recipe.description }}
+        </div>
+    </div> -->
+    
+    <div class="row">
+        <div class="col-xs-5">
+            <ul class="list">
+                <li 
+                *ngFor="let ingredient of recipe.ingredients">
+                <strong>
+                    {{ ingredient.name }}
+                    <div class="pull-right">
+                        {{ ingredient.amount | currency:'Rs:' }}
+                    </div>
+                </strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

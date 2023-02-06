@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-success" (click)=onNewElectronic()>New Device</button>
+        <button class="btn btn-success" (click)=onSaveData()>Save Device</button>
+        <button class="btn btn-success" (click)=onFetchData()>Fetch Device</button>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-xs-12">
+        <app-electronic-item 
+        *ngFor="let electronicEl of electronics; let i = index"
+        [electronic]='electronicEl'
+        [index]="i"></app-electronic-item>
+        <hr>
+    </div>
+</div>

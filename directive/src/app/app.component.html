@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 appHighlight>This is a Directives!</h2>
+      <h2 [appBetterHighlight]="'green'" [defaultColor]="'black'" 
+      [changeColor]="'brown'">This is a Directives!</h2> 
+      <!-- it is a rarely used case when ngClass and property binding 
+        is need to be used in the same directive -->
+      <hr>
+      <div [ngSwitch]="value">
+        <p *ngSwitchCase="5">value is 5</p>
+        <p *ngSwitchCase="10">value is 10</p>
+        <p *ngSwitchCase="100">value is 100</p>
+        <p *ngSwitchCase="1000">value is 1000</p>
+        <p *ngSwitchDefault>value is Default</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      
